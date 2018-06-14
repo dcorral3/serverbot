@@ -8,7 +8,7 @@ import commands
 from telepot.loop import MessageLoop
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 def auth(chat_id):
-    return chat_id == config.chad_id
+    return chat_id == config.chat_id
 
 def c_handle(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)

@@ -26,6 +26,5 @@ def hostname():
     return socket.gethostname()
 
 def ip():
-    res = requests.get('https://ipinfo.io/')
+    res = requests.get('https://api.ipify.org?format=json')
     return json.loads(res.text)["ip"]
-

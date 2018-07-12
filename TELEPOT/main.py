@@ -1,4 +1,4 @@
-#!/bin/python3
+#! /usr/bin/python3
 
 import sys
 import time
@@ -8,7 +8,8 @@ import commands
 from telepot.loop import MessageLoop
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 def auth(chat_id):
-    return chat_id == config.chat_id
+    return True
+    # return chat_id == config.chat_id
 
 def c_handle(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
@@ -37,7 +38,7 @@ def cb_handle(msg):
     else:
         bot.sendMessage(chat_id, "Sorry, you don't have authorization")
 
-TOKEN = config.TOKEN  # get token from command-line
+TOKEN = config.TOKEN 
 
 bot = telepot.Bot(TOKEN)
 MessageLoop(bot, {'callback_query':cb_handle,'chat': c_handle}).run_as_thread()

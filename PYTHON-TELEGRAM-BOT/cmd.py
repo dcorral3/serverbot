@@ -42,7 +42,7 @@ def update_ip():
         res_url = requests.get('https://dynamicdns.park-your-domain.com/update?host='+ host +'&domain=diegoct.com&password='+ DNS_pass +'&ip=')
         res = res + host +": " + str(res_url.status_code)+"\n"
     res_url = requests.get('http://'+noip_user+':'+noip_pass+'@dynupdate.no-ip.com/nic/update?hostname=dcorral1.hopto.org&myip=')
-    res = res + host +": " + str(res_url.status_code)+"\n"
+    res = res + "server: " + str(res_url.status_code)+"\n"
     return res
 
 def reboot(chat_id):

@@ -3,7 +3,7 @@ import socket
 import os
 import requests
 import json
-from config import DNS_pass, hosts, admin_id
+from config import DNS_pass, hosts, admin_id, noip_user, noip_pass
 
 keyboard = [[InlineKeyboardButton("Hostname", callback_data='hostname'),
              InlineKeyboardButton("IP", callback_data='ip')],
@@ -41,6 +41,8 @@ def update_ip():
     for host in hosts:
         res_url = requests.get('https://dynamicdns.park-your-domain.com/update?host='+ host +'&domain=diegoct.com&password='+ DNS_pass +'&ip=')
         res = res + host +": " + str(res_url.status_code)+"\n"
+    res_url = requests.get('http://'+noip_user':'+noip_pass+'@dynupdate.no-ip.com/nic/update?hostname=dcorral1.hopto.org&myip=')
+    res = res + host +": " + str(res_url.status_code)+"\n"
     return res
 
 def reboot(chat_id):
